@@ -1,0 +1,32 @@
+name: jobgods
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  introduction_screen: ^3.1.12
+  sms_otp_auto_verify: ^2.1.0
+  lottie: ^2.7.0
+  get:
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  fluttertoast: ^8.2.4
+  cloud_firestore: ^4.14.0
+  firebase_storage: ^11.6.0
+  carousel_slider: ^4.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - image/
