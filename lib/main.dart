@@ -7,9 +7,8 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform)
-    .then((value) => Get.put(AuthenticationRespository()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) => Get.put(AuthenticationRespository()));
   runApp(const MainApp());
 }
 
@@ -25,10 +24,9 @@ class MainApp extends StatelessWidget {
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-      //darkTheme: ThemeData(brightness: Brightness.dark),
-      //themeMode: ThemeMode.system,
-      //getPages: pages,
+      ),
+      // darkTheme: ThemeData(brightness: Brightness.dark),
+      // themeMode: ThemeMode.system,
       home: SplashScreen(),
     );
   }

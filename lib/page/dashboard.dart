@@ -11,6 +11,7 @@ import 'package:jobgods/page/categories/c_plumber.dart';
 import 'package:jobgods/page/profile.dart';
 import 'package:jobgods/page/self/s_apply.dart';
 import 'package:jobgods/page/self/s_post.dart';
+import 'package:jobgods/page/setting.dart';
 import 'package:jobgods/screens/allusers_screen.dart';
 import 'package:jobgods/screens/profile_screen.dart';
 
@@ -147,7 +148,7 @@ class _DashboardState extends State<Dashboard> {
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Profile()));
+                          MaterialPageRoute(builder: (context) => Setting()));
                     },
                     child: Column(
                       children: <Widget>[

@@ -5,16 +5,16 @@ import 'package:jobgods/models/user_model.dart';
 
 class UserRespository extends GetxController {
   static UserRespository get instance => Get.find();
-
   final _db = FirebaseFirestore.instance;
+
   creatUser(UserModel user) async {
     await _db.collection("Users").add(user.toJson()).whenComplete(() {
       Get.snackbar(
         "Success",
         "Your account has been created.",
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.blue.withOpacity(0.1),
-        colorText: Colors.blue,
+        backgroundColor: Color.fromARGB(255, 5, 219, 12).withOpacity(0.7),
+        colorText: Colors.white,
       );
     }).catchError((error, stackTrace) {
       Get.snackbar("Error", "Something went wrong. Try again",

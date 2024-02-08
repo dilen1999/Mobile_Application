@@ -2,12 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:jobgods/home_screen.dart';
 
 class LoginController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
   final FirebaseAuth auth = FirebaseAuth.instance;
+
   void onLogin() {
     signIn(email.text, password.text);
   }
@@ -16,6 +19,9 @@ class LoginController extends GetxController {
     try {
       await auth.signInWithEmailAndPassword(email: email, password: password);
       print("Login");
+      Get.to(() => const HomeScreen());
+      _emailController.clear();
+      _passController.clear();
       Fluttertoast.showToast(
         msg: "Login",
         backgroundColor: Colors.green[600],

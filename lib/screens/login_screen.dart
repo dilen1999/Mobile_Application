@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobgods/home_screen.dart';
 import 'package:jobgods/screens/forgot_screen.dart';
 import 'package:jobgods/screens/signup_screen.dart';
 import 'package:jobgods/controller/author/login_controller.dart';
@@ -63,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                "Username",
+                "Email",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w800,
@@ -75,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     MyTextField(
-                      label: "Geobdc",
+                      label: "Geobdc@gmail.com",
                       icons: Icons.person,
                       onchange: loginController.email,
                     ),
@@ -132,11 +131,6 @@ class LoginScreen extends StatelessWidget {
               ElevatedButton(
                   onPressed: () {
                     loginController.onLogin();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
-                        ));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xff3680AA),

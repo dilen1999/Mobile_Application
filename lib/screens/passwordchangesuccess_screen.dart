@@ -13,7 +13,7 @@ class _PasswordchangesuccessScreenState extends State<PasswordchangesuccessScree
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2),
+    Timer(Duration(seconds: 5),
       ()=>Navigator.push(
         context, 
         MaterialPageRoute(
@@ -35,7 +35,7 @@ class _PasswordchangesuccessScreenState extends State<PasswordchangesuccessScree
             RichText(
               text: TextSpan(children: [
                 TextSpan(
-                  text: "Successfully Password Updated",
+                  text: "Successfully Reset Password link sent it for your mail",
                   style: TextStyle(
                     fontSize: 30,
                     color: Color(0xff0D0140),

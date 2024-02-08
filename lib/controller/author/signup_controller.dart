@@ -11,6 +11,12 @@ class SignupController extends GetxController {
   final email = TextEditingController();
   final phonenumber = TextEditingController();
   final password = TextEditingController();
+  final gender = TextEditingController();
+  final dateofbirth = TextEditingController();
+  final address = TextEditingController();
+  final city = TextEditingController();
+  final district = TextEditingController();
+  final qualification = TextEditingController();
   final userRepo = Get.put(UserRespository());
   //final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -37,14 +43,14 @@ class SignupController extends GetxController {
     Get.to(() => const SignupsuccessScreen());
   }
 
-  // @override
-  // void dispose() {
-  //   username.dispose();
-  //   email.dispose();
-  //   phonenumber.dispose();
-  //   password.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    username.dispose();
+    email.dispose();
+    phonenumber.dispose();
+    password.dispose();
+    super.dispose();
+  }
 
 //   Future<void> createAccount(
 //       String email, String password) async {

@@ -29,10 +29,10 @@ class UserModel {
     final data = document.data()!;
     return UserModel(
       id: document.id,
-        username: data["Username"],
-        email: data["Email"],
-        phonenumber: data["Phone"],
-        password: data["Password"],
+      username: data["Username"],
+      email: data["Email"],
+      phonenumber: data["Phone"],
+      password: data["Password"],
     );
   }
 }

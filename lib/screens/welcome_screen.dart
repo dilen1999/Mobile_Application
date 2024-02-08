@@ -91,7 +91,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 250),
+              padding: EdgeInsets.only(top: 300),
               child: Align(
                 alignment: Alignment.center,
                 child: ElevatedButton(

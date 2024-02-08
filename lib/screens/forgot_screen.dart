@@ -1,10 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jobgods/screens/login_screen.dart';
 import 'package:jobgods/screens/otp_screen.dart';
+import 'package:jobgods/screens/passwordchangesuccess_screen.dart';
 
-class ForgotScreen extends StatelessWidget {
+class ForgotScreen extends StatefulWidget {
   const ForgotScreen({super.key});
 
+  @override
+  State<ForgotScreen> createState() => _ForgotScreenState();
+}
+
+class _ForgotScreenState extends State<ForgotScreen> {
+  TextEditingController forgotPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Material(    
@@ -134,6 +143,7 @@ class ForgotScreen extends StatelessWidget {
                     SizedBox(
                       height: 50,
                       child: TextFormField(
+                        controller: forgotPasswordController,
                         decoration: InputDecoration(
                           hintText: "Georhg@gmail.com",
                           prefixIcon: Icon(Icons.mail),
@@ -155,12 +165,18 @@ class ForgotScreen extends StatelessWidget {
                 height: 70,
               ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => OtpScreen(),
-                      ));
+                onPressed: () async {
+                  var forgotEmail = forgotPasswordController.text.trim();
+                  try{
+                    await FirebaseAuth.instance
+                    .sendPasswordResetEmail(email: forgotEmail)
+                    .then((value) => {
+                      print("Email Sent!"),
+                      Get.off(()=>PasswordchangesuccessScreen()),
+                    });
+                  }on FirebaseAuthException catch(e){
+                    print("Error $e");
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xff3680AA),

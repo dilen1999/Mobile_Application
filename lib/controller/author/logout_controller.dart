@@ -8,7 +8,7 @@ class LogoutController {
   Future<void> logout() async {
     try {
       await _auth.signOut();
-      Get.to(() => const LoginScreen());
+      Get.to(() => LoginScreen());
     } catch (e) {
       // Handle any potential errors during the sign-out process
       print("Error during logout: $e");

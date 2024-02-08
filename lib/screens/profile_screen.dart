@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobgods/controller/profile_controller.dart';
 import 'package:jobgods/models/user_model.dart';
+import 'package:jobgods/page/profile.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({
@@ -14,12 +15,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Update profile',
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Color(0xff0d0140),
-          ),
+          'Profile Details',
         ),
       ),
       body: SingleChildScrollView(
@@ -39,32 +35,35 @@ class ProfileScreen extends StatelessWidget {
                   final password =
                       TextEditingController(text: userData.password);
                   return Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Stack(
-                        children: [
-                          SizedBox(
-                            height: 100,
-                          ),
-                          SizedBox(
-                            height: 120,
-                            width: 120,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
-                              child: Image.asset("image/Logoonly.jpg"),
+                      SizedBox(
+                        height: 120,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.black, // Set the border color
+                              width: 1.0, // Set the border width
                             ),
                           ),
-                          Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: Container(
-                              width: 35,
-                              height: 35,
-                              child: const Icon(Icons.alternate_email),
-                              color: Colors.red,
-                            ),
+
+                          child: Stack(
+                            children: [
+                                  SizedBox(
+                                    height: 120,
+                                    width: 120,
+                                    child: ClipOval(
+                                child: Image.asset(
+                                  'image/profile.png', // Replace with your image path
+                                  width: 70, // Adjust the width as needed
+                                  height: 70,
+                                ),
+                              ),
+                                  ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                       const SizedBox(
                         height: 15,
@@ -76,30 +75,38 @@ class ProfileScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25.0, vertical: 10.0),
-                        child: Column(
-                          children: [
-                            TextFormField(
-                                //initialValue: userData.username,
-                                controller: username,
-                                decoration: const InputDecoration(
-                                  hintText: AutofillHints.username,
-                                  prefixIcon: Icon(Icons.person),
-                                  filled: true,
-                                  fillColor: Color(0x8cb4dee8),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      width: 0,
-                                    ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: SizedBox(
+                          width: 150,
+                          child: Column(
+                            children: [
+                              Text(
+                                  userData.username,
+                                  // controller: username,
+                                  // decoration: const InputDecoration(
+                                  //   hintText: AutofillHints.username,
+                                  //   prefixIcon: Icon(Icons.person),
+                                  //   filled: true,
+                                  //   fillColor: Color(0x8cb4dee8),
+                                  //   border: OutlineInputBorder(
+                                  //     borderSide: BorderSide(
+                                  //       width: 0,
+                                  //     ),
+                                  //   ),
+                                  //)
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromARGB(255, 15, 39, 223),
                                   ),
-                                ))
-                          ],
+                                  textAlign: TextAlign.left,
+                                  ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -112,30 +119,37 @@ class ProfileScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25.0, vertical: 10.0),
-                        child: Column(
-                          children: [
-                            TextFormField(
-                                //initialValue: userData.email,
-                                controller: email,
-                                decoration: const InputDecoration(
-                                  hintText: AutofillHints.email,
-                                  prefixIcon: Icon(Icons.email),
-                                  filled: true,
-                                  fillColor: Color(0x8cb4dee8),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      width: 0,
-                                    ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: SizedBox(
+                          width: 340,
+                          child: Column(
+                            children: [
+                              Text(
+                                  userData.email,
+                                  // controller: email,
+                                  // decoration: const InputDecoration(
+                                  //   hintText: AutofillHints.email,
+                                  //   prefixIcon: Icon(Icons.email),
+                                  //   filled: true,
+                                  //   fillColor: Color(0x8cb4dee8),
+                                  //   border: OutlineInputBorder(
+                                  //     borderSide: BorderSide(
+                                  //       width: 0,
+                                  //     ),
+                                  //   ),
+                                  // )
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromARGB(255, 15, 39, 223),
                                   ),
-                                ))
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -148,30 +162,37 @@ class ProfileScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25.0, vertical: 10.0),
-                        child: Column(
-                          children: [
-                            TextFormField(
-                                //initialValue: userData.phonenumber,
-                                controller: phonenumber,
-                                decoration: const InputDecoration(
-                                  hintText: AutofillHints.telephoneNumber,
-                                  prefixIcon: Icon(Icons.phone),
-                                  filled: true,
-                                  fillColor: Color(0x8cb4dee8),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      width: 0,
-                                    ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: SizedBox(
+                          width: 240,
+                          child: Column(
+                            children: [
+                              Text(
+                                  userData.phonenumber,
+                                  // controller: phonenumber,
+                                  // decoration: const InputDecoration(
+                                  //   hintText: AutofillHints.telephoneNumber,
+                                  //   prefixIcon: Icon(Icons.phone),
+                                  //   filled: true,
+                                  //   fillColor: Color(0x8cb4dee8),
+                                  //   border: OutlineInputBorder(
+                                  //     borderSide: BorderSide(
+                                  //       width: 0,
+                                  //     ),
+                                  //   ),
+                                  // )
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromARGB(255, 15, 39, 223),
                                   ),
-                                ))
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -184,29 +205,37 @@ class ProfileScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
-                        child: Column(
-                          children: [
-                            TextFormField(
-                                //initialValue: userData.password,
-                                controller: password,
-                                decoration: const InputDecoration(
-                                  hintText: AutofillHints.password,
-                                  prefixIcon: Icon(Icons.lock),
-                                  filled: true,
-                                  fillColor: Color(0x8cb4dee8),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      width: 0,
-                                    ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: SizedBox(
+                          width: 180,
+                          child: Column(
+                            children: [
+                              Text(
+                                  userData.password,
+                                  // controller: password,
+                                  // decoration: const InputDecoration(
+                                  //   hintText: AutofillHints.password,
+                                  //   prefixIcon: Icon(Icons.lock),
+                                  //   filled: true,
+                                  //   fillColor: Color(0x8cb4dee8),
+                                  //   border: OutlineInputBorder(
+                                  //     borderSide: BorderSide(
+                                  //       width: 0,
+                                  //     ),
+                                  //   ),
+                                  // )
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromARGB(255, 15, 39, 223),
                                   ),
-                                ))
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -214,24 +243,24 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                           onPressed: () async {
-                            final user = UserModel(
-                              username: username.text.trim(),
-                              email: email.text.trim(),
-                              phonenumber: phonenumber.text.trim(),
-                              password: password.text.trim(),
-                            );
-                            await profileController.updateRecord(user);
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => ProfileScreen(),
-                            //     ));
+                            // final user = UserModel(
+                            //   username: username.text.trim(),
+                            //   email: email.text.trim(),
+                            //   phonenumber: phonenumber.text.trim(),
+                            //   password: password.text.trim(),
+                            // );
+                            // await profileController.updateRecord(user);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Profile(),
+                                ));
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xff3680AA),
                             onPrimary: Color(0xff000a61),
                             padding: EdgeInsets.symmetric(
-                                horizontal: 100, vertical: 13),
+                                horizontal: 70, vertical: 10),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25.0)),
                           ),
@@ -258,7 +287,7 @@ class ProfileScreen extends StatelessWidget {
                               child: Text(
                                 "Delete Account",
                                 style: TextStyle(
-                                  color: Color(0xff4DC7E6),
+                                  color: Colors.red,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
